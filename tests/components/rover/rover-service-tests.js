@@ -14,4 +14,9 @@ describe("rover service", function () {
         expect(RoverService.getY()).toEqual(0);
         expect(RoverService.getAngle()).toEqual(0);
     });
+
+    it("moves up", function () {
+        RoverService.F();
+        expect(RoverService.getY()).toEqual(1);
+    });
 });
