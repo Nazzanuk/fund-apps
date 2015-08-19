@@ -68,7 +68,7 @@ describe("rover service", function () {
     it("Add Obstacle", function () {
         RoverService.addObstacle([3, 3, 'hole']);
         RoverService.moveSet('FFFRFFFFFFFF');
-        expect(RoverService.getPosition()).toEqual([2, 3, 'W']);
+        expect(RoverService.getPosition()).toEqual([2, 3, 'E']);
         expect(RoverService.status()).toEqual('blocked by hole at [3, 3]');
     });
 });
