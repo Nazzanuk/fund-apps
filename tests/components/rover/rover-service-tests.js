@@ -34,4 +34,15 @@ describe("rover service", function () {
         RoverService.R();
         expect(RoverService.getAngle()).toEqual(90);
     });
+
+    it("FFRFF navigates to 2,2 facing East (90)", function () {
+        RoverService.F();
+        RoverService.F();
+        RoverService.R();
+        RoverService.F();
+        RoverService.F();
+        expect(RoverService.getX()).toEqual(2);
+        expect(RoverService.getY()).toEqual(2);
+        expect(RoverService.getAngle()).toEqual(90);
+    });
 });
