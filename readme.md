@@ -2,7 +2,7 @@
 
 ### About
 
-This is a service built in Angular with tests built in Karma. I used WebStorm to continuously run the Karma tests but can be done with gulp also.
+This is a service built in Angular with tests built in Karma. I used WebStorm to continuously run the Karma tests but can also be done with Gulp.
 
 ### Prerequisites
 
