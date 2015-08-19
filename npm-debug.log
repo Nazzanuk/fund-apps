@@ -1,0 +1,85 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 warn package.json hub-on-hub@0.1.0 No description
+5 warn package.json hub-on-hub@0.1.0 No README data
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ '/Projects/fund-apps-test',
+7 verbose install   [ 'del',
+7 verbose install     'gulp',
+7 verbose install     'gulp-autoprefixer',
+7 verbose install     'gulp-concat',
+7 verbose install     'gulp-data',
+7 verbose install     'gulp-ejs',
+7 verbose install     'gulp-jshint',
+7 verbose install     'gulp-karma',
+7 verbose install     'gulp-plumber',
+7 verbose install     'gulp-rename',
+7 verbose install     'gulp-sass',
+7 verbose install     'gulp-webserver',
+7 verbose install     'jasmine-core',
+7 verbose install     'karma',
+7 verbose install     'karma-jasmine',
+7 verbose install     'karma-phantomjs-launcher',
+7 verbose install     'phantomjs',
+7 verbose install     'karma-chrome-launcher' ] ]
+8 info preinstall hub-on-hub@0.1.0
+9 verbose readDependencies using package.json deps
+10 verbose already installed skipping del@1.1.1 /Projects/fund-apps-test
+11 verbose already installed skipping gulp@3.8.11 /Projects/fund-apps-test
+12 verbose already installed skipping gulp-autoprefixer@2.1.0 /Projects/fund-apps-test
+13 verbose already installed skipping gulp-concat@2.5.2 /Projects/fund-apps-test
+14 verbose already installed skipping gulp-data@^1.2.0 /Projects/fund-apps-test
+15 verbose already installed skipping gulp-ejs@^1.1.0 /Projects/fund-apps-test
+16 verbose already installed skipping gulp-jshint@^1.10.0 /Projects/fund-apps-test
+17 verbose already installed skipping gulp-karma@0.0.4 /Projects/fund-apps-test
+18 verbose already installed skipping gulp-plumber@^1.0.0 /Projects/fund-apps-test
+19 verbose already installed skipping gulp-rename@1.2.2 /Projects/fund-apps-test
+20 verbose already installed skipping gulp-sass@^1.3.3 /Projects/fund-apps-test
+21 verbose already installed skipping gulp-webserver@^0.9.1 /Projects/fund-apps-test
+22 verbose already installed skipping jasmine-core@^2.3.4 /Projects/fund-apps-test
+23 verbose already installed skipping karma@^0.13.9 /Projects/fund-apps-test
+24 verbose already installed skipping karma-jasmine@^0.3.6 /Projects/fund-apps-test
+25 verbose already installed skipping karma-phantomjs-launcher@^0.2.1 /Projects/fund-apps-test
+26 verbose already installed skipping phantomjs@^1.9.18 /Projects/fund-apps-test
+27 verbose already installed skipping karma-chrome-launcher@^0.2.0 /Projects/fund-apps-test
+28 silly resolved []
+29 info build /Projects/fund-apps-test
+30 verbose linkStuff [ false, false, false, '/Projects' ]
+31 info linkStuff hub-on-hub@0.1.0
+32 verbose linkBins hub-on-hub@0.1.0
+33 verbose linkMans hub-on-hub@0.1.0
+34 verbose rebuildBundles hub-on-hub@0.1.0
+35 verbose rebuildBundles [ '.bin',
+35 verbose rebuildBundles   'del',
+35 verbose rebuildBundles   'gulp',
+35 verbose rebuildBundles   'gulp-autoprefixer',
+35 verbose rebuildBundles   'gulp-concat',
+35 verbose rebuildBundles   'gulp-data',
+35 verbose rebuildBundles   'gulp-ejs',
+35 verbose rebuildBundles   'gulp-jshint',
+35 verbose rebuildBundles   'gulp-karma',
+35 verbose rebuildBundles   'gulp-plumber',
+35 verbose rebuildBundles   'gulp-rename',
+35 verbose rebuildBundles   'gulp-sass',
+35 verbose rebuildBundles   'gulp-webserver',
+35 verbose rebuildBundles   'jasmine-core',
+35 verbose rebuildBundles   'karma',
+35 verbose rebuildBundles   'karma-chrome-launcher',
+35 verbose rebuildBundles   'karma-jasmine',
+35 verbose rebuildBundles   'karma-phantomjs-launcher',
+35 verbose rebuildBundles   'phantomjs' ]
+36 info install hub-on-hub@0.1.0
+37 info postinstall hub-on-hub@0.1.0
+38 info prepublish hub-on-hub@0.1.0
+39 error peerinvalid The package karma does not satisfy its siblings' peerDependencies requirements!
+39 error peerinvalid Peer gulp-karma@0.0.4 wants karma@>=0.10 <=0.13
+39 error peerinvalid Peer karma-phantomjs-launcher@0.2.1 wants karma@>=0.9
+40 error System Darwin 14.1.0
+41 error command "node" "/usr/local/bin/npm" "install"
+42 error cwd /Projects/fund-apps-test
+43 error node -v v0.10.33
+44 error npm -v 1.4.28
+45 error code EPEERINVALID
+46 verbose exit [ 1, true ]
