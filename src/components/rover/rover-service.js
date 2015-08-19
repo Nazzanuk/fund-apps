@@ -20,6 +20,17 @@
             return roverData.angle;
         };
 
+        var getPosition = function () {
+            return [getX(), getY(), getAngle()]
+        };
+
+        var moveSet = function (string) {
+            var array = string.split('');
+            _.each(array, function (letter) {
+                that[letter]();
+            });
+        };
+
         var F = function () {
             roverData.x += Math.round(Math.sin(getAngle() * Math.PI / 180.0));
             roverData.y += Math.round(Math.cos(getAngle() * Math.PI / 180.0));
@@ -43,6 +54,8 @@
         that.getX = getX;
         that.getY = getY;
         that.getAngle = getAngle;
+        that.moveSet = moveSet;
+        that.getPosition = getPosition;
         that.F = F;
         that.B = B;
         that.L = L;

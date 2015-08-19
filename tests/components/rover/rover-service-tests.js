@@ -10,46 +10,36 @@ describe("rover service", function () {
     }));
 
     it("gets default values", function () {
-        expect(RoverService.getX()).toEqual(0);
-        expect(RoverService.getY()).toEqual(0);
-        expect(RoverService.getAngle()).toEqual(0);
+        expect(RoverService.getPosition()).toEqual([0, 0, 0]);
     });
 
     it("moves forward", function () {
-        RoverService.F();
-        expect(RoverService.getY()).toEqual(1);
+        RoverService.moveSet('F');
+        expect(RoverService.getPosition()).toEqual([0, 1, 0]);
     });
 
     it("moves backwards", function () {
-        RoverService.B();
-        expect(RoverService.getY()).toEqual(-1);
+        RoverService.moveSet('B');
+        expect(RoverService.getPosition()).toEqual([0, -1, 0]);
     });
 
     it("rotates left", function () {
-        RoverService.L();
-        expect(RoverService.getAngle()).toEqual(-90);
+        RoverService.moveSet('L');
+        expect(RoverService.getPosition()).toEqual([0, 0, -90]);
     });
 
     it("rotates right", function () {
-        RoverService.R();
-        expect(RoverService.getAngle()).toEqual(90);
+        RoverService.moveSet('R');
+        expect(RoverService.getPosition()).toEqual([0, 0, 90]);
     });
 
     it("FFRFF navigates to 2,2 facing East (90)", function () {
-        RoverService.F();
-        RoverService.F();
-        RoverService.R();
-        RoverService.F();
-        RoverService.F();
-        expect(RoverService.getX()).toEqual(2);
-        expect(RoverService.getY()).toEqual(2);
-        expect(RoverService.getAngle()).toEqual(90);
+        RoverService.moveSet('FFRFF');
+        expect(RoverService.getPosition()).toEqual([2, 2, 90]);
     });
 
     it("Add shorthand FFRFF navigates to 2,2 facing East (90)", function () {
         RoverService.moveSet('FFRFF');
-        expect(RoverService.getX()).toEqual(2);
-        expect(RoverService.getY()).toEqual(2);
-        expect(RoverService.getAngle()).toEqual(90);
+        expect(RoverService.getPosition()).toEqual([2, 2, 90]);
     });
 });
