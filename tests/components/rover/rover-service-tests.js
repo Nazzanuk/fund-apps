@@ -60,15 +60,15 @@ describe("rover service", function () {
 
     it("Add Bike Obstacle", function () {
         RoverService.addObstacle([0, 2, 'bike']);
-        RoverService.moveSet('F');
+        RoverService.moveSet('FF');
+        expect(RoverService.getStatus()).toEqual('blocked by bike at [0, 2]');
         expect(RoverService.getPosition()).toEqual([0, 1, 'N']);
-        expect(RoverService.status()).toEqual('blocked by bike at [0, 2]');
     });
 
     it("Add Obstacle", function () {
         RoverService.addObstacle([3, 3, 'hole']);
         RoverService.moveSet('FFFRFFFFFFFF');
         expect(RoverService.getPosition()).toEqual([2, 3, 'E']);
-        expect(RoverService.status()).toEqual('blocked by hole at [3, 3]');
+        expect(RoverService.getStatus()).toEqual('blocked by hole at [3, 3]');
     });
 });
