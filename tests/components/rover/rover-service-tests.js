@@ -48,13 +48,27 @@ describe("rover service", function () {
         expect(RoverService.getPosition()).toEqual([0, 0, 'N']);
     });
 
-    it("Check Y bounds", function () {
+    it("Check Y bounds for [100,100]", function () {
         RoverService.moveSet('BBB');
         expect(RoverService.getPosition()).toEqual([0, 97, 'N']);
     });
 
-    it("Check X bounds", function () {
+    it("Check X bounds for [100,100]", function () {
         RoverService.moveSet('LFFF');
         expect(RoverService.getPosition()).toEqual([97, 0, 'W']);
+    });
+
+    it("Add Bike Obstacle", function () {
+        RoverService.addObstacle([0, 2, 'bike']);
+        RoverService.moveSet('F');
+        expect(RoverService.getPosition()).toEqual([0, 1, 'N']);
+        expect(RoverService.status()).toEqual('blocked by bike at [0, 2]');
+    });
+
+    it("Add Obstacle", function () {
+        RoverService.addObstacle([3, 3, 'hole']);
+        RoverService.moveSet('FFFRFFFFFFFF');
+        expect(RoverService.getPosition()).toEqual([2, 3, 'W']);
+        expect(RoverService.status()).toEqual('blocked by hole at [3, 3]');
     });
 });
