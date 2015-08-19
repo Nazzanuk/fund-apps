@@ -20,11 +20,16 @@
             return roverData.angle;
         };
 
+        var F = function () {
+            roverData.y++;
+        };
+
         //Public Functions
 
         that.getX = getX;
         that.getY = getY;
         that.getAngle = getAngle;
+        that.F = F;
 
     }]);
 }());
