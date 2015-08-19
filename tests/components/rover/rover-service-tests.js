@@ -61,14 +61,21 @@ describe("rover service", function () {
     it("Add Bike Obstacle", function () {
         RoverService.addObstacle([0, 2, 'bike']);
         RoverService.moveSet('FF');
-        expect(RoverService.getStatus()).toEqual('blocked by bike at [0, 2]');
         expect(RoverService.getPosition()).toEqual([0, 1, 'N']);
+        expect(RoverService.getStatus()).toEqual('blocked by bike at [0, 2]');
     });
 
-    it("Add Obstacle", function () {
+    it("Add Hole Obstacle", function () {
         RoverService.addObstacle([3, 3, 'hole']);
-        RoverService.moveSet('FFFRFFFFFFFF');
+        RoverService.moveSet('FFFRFFFFFFFLRBBFRRF');
         expect(RoverService.getPosition()).toEqual([2, 3, 'E']);
         expect(RoverService.getStatus()).toEqual('blocked by hole at [3, 3]');
+    });
+
+    it("Add Phone Obstacle Reverse into it out of bounds", function () {
+        RoverService.addObstacle([4, 97, 'phone']);
+        RoverService.moveSet('LLRRBBBLBBBBBB');
+        expect(RoverService.getPosition()).toEqual([3, 97, 'W']);
+        expect(RoverService.getStatus()).toEqual('blocked by phone at [4, 97]');
     });
 });

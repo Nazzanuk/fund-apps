@@ -2,16 +2,13 @@
     app.service('RoverService', [function () {
         var that = this;
 
-        var obstacles = [];
-        var blocked = false;
-        var status = "nothing to report";
+        var obstacles = [],
+            moveArray = [],
+            blocked = false,
+            status = "nothing to report";
 
-        var bounds = {
-            x: 100,
-            y: 100
-        };
-
-        var roverData = {x: 0, y: 0, angle: 0},
+        var bounds = {x: 100, y: 100},
+            roverData = {x: 0, y: 0, angle: 0},
             directions = ['N', 'E', 'S', 'W'];
 
         var getX = function () {
@@ -44,26 +41,37 @@
             return [getX(), getY(), getPrettyAngle()]
         };
 
+        /**
+         * moves a string array one by one
+         * @param string - 'FFFRFFFFFFFLRBBFRRF'
+         */
         var moveSet = function (string) {
-            var array = string.split('');
+            moveArray = string.split('');
             blocked = false;
             status = "nothing to report";
+            _.each(moveArray, moveSingle);
+        };
 
-            _.each(array, function (letter) {
-                if (blocked) return;
-                var originalPosition = {x: getX(), y: getY(), angle: getAngle()};
-                that[letter]();
-                checkBounds();
+        /**
+         * a single move to the next position,
+         * keeps the rover within the correct bounds,
+         * checks if obstacle exists
+         * and if so restores the previous position and sets an error message
+         * @param letter - 'L'
+         */
+        var moveSingle = function (letter) {
+            var originalPosition = {x: getX(), y: getY(), angle: getAngle()};
+            move[letter]();
+            checkBounds();
+            _.each(obstacles, checkObstacle);
+            if (blocked) roverData = originalPosition;
+        };
 
-                _.each(obstacles, function (obstacle) {
-                    if (obstacle.x == getX() && obstacle.y == getY()) {
-                        blocked = true;
-                        status = "blocked by " + obstacle.name + " at [" + getX() + ", " + getY() + "]";
-                    }
-                });
-
-                if (blocked) roverData = originalPosition;
-            });
+        var checkObstacle = function (obstacle) {
+            if (obstacle.x == getX() && obstacle.y == getY()) {
+                blocked = true;
+                status = "blocked by " + obstacle.name + " at [" + getX() + ", " + getY() + "]";
+            }
         };
 
         var checkBounds = function () {
@@ -73,22 +81,21 @@
             if (getY() < 0) roverData.y += bounds.y;
         };
 
-        var F = function () {
-            roverData.x += Math.round(Math.sin(getAngle() * Math.PI / 180.0));
-            roverData.y += Math.round(Math.cos(getAngle() * Math.PI / 180.0));
-        };
-
-        var B = function () {
-            roverData.x -= Math.round(Math.sin(getAngle() * Math.PI / 180.0));
-            roverData.y -= Math.round(Math.cos(getAngle() * Math.PI / 180.0));
-        };
-
-        var L = function () {
-            roverData.angle -= 90;
-        };
-
-        var R = function () {
-            roverData.angle += 90;
+        var move = {
+            F: function () {
+                roverData.x += Math.round(Math.sin(getAngle() * Math.PI / 180.0));
+                roverData.y += Math.round(Math.cos(getAngle() * Math.PI / 180.0));
+            },
+            B: function () {
+                roverData.x -= Math.round(Math.sin(getAngle() * Math.PI / 180.0));
+                roverData.y -= Math.round(Math.cos(getAngle() * Math.PI / 180.0));
+            },
+            L: function () {
+                roverData.angle -= 90;
+            },
+            R: function () {
+                roverData.angle += 90;
+            }
         };
 
         //Public Functions
@@ -98,10 +105,6 @@
         that.getPosition = getPosition;
         that.getStatus = getStatus;
         that.addObstacle = addObstacle;
-        that.F = F;
-        that.B = B;
-        that.L = L;
-        that.R = R;
 
     }]);
 }());
