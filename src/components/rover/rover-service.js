@@ -21,11 +21,13 @@
         };
 
         var F = function () {
-            roverData.y++;
+            roverData.x += Math.round(Math.sin(getAngle() * Math.PI / 180.0));
+            roverData.y += Math.round(Math.cos(getAngle() * Math.PI / 180.0));
         };
 
         var B = function () {
-            roverData.y--;
+            roverData.x -= Math.round(Math.sin(getAngle() * Math.PI / 180.0));
+            roverData.y -= Math.round(Math.cos(getAngle() * Math.PI / 180.0));
         };
 
         var L = function () {
