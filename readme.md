@@ -22,8 +22,8 @@ $ gulp unit-test #to run the tests
 
 ### Paths
 
-**JavaScript**
+**JavaScript**   
 `src/components/rover/rover-service.js`
 
-**Karma / Jasmine Tests**
+**Karma / Jasmine Tests**   
 `tests/components/rover/rover-service-tests.js`
