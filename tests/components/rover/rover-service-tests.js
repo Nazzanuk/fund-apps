@@ -45,4 +45,11 @@ describe("rover service", function () {
         expect(RoverService.getY()).toEqual(2);
         expect(RoverService.getAngle()).toEqual(90);
     });
+
+    it("Add shorthand FFRFF navigates to 2,2 facing East (90)", function () {
+        RoverService.moveSet('FFRFF');
+        expect(RoverService.getX()).toEqual(2);
+        expect(RoverService.getY()).toEqual(2);
+        expect(RoverService.getAngle()).toEqual(90);
+    });
 });
