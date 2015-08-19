@@ -21,19 +21,19 @@
         };
 
         var F = function () {
-
+            roverData.y++;
         };
 
         var B = function () {
-
+            roverData.y--;
         };
 
         var L = function () {
-
+            roverData.angle -= 90;
         };
 
         var R = function () {
-
+            roverData.angle += 90;
         };
 
         //Public Functions
