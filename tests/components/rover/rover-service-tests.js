@@ -10,36 +10,41 @@ describe("rover service", function () {
     }));
 
     it("gets default values", function () {
-        expect(RoverService.getPosition()).toEqual([0, 0, 0]);
+        expect(RoverService.getPosition()).toEqual([0, 0, 'N']);
     });
 
     it("moves forward", function () {
         RoverService.moveSet('F');
-        expect(RoverService.getPosition()).toEqual([0, 1, 0]);
+        expect(RoverService.getPosition()).toEqual([0, 1, 'N']);
     });
 
     it("moves backwards", function () {
         RoverService.moveSet('B');
-        expect(RoverService.getPosition()).toEqual([0, -1, 0]);
+        expect(RoverService.getPosition()).toEqual([0, -1, 'N']);
     });
 
     it("rotates left", function () {
         RoverService.moveSet('L');
-        expect(RoverService.getPosition()).toEqual([0, 0, -90]);
+        expect(RoverService.getPosition()).toEqual([0, 0, 'L']);
     });
 
     it("rotates right", function () {
         RoverService.moveSet('R');
-        expect(RoverService.getPosition()).toEqual([0, 0, 90]);
+        expect(RoverService.getPosition()).toEqual([0, 0, 'R']);
     });
 
     it("FFRFF navigates to 2,2 facing East (90)", function () {
         RoverService.moveSet('FFRFF');
-        expect(RoverService.getPosition()).toEqual([2, 2, 90]);
+        expect(RoverService.getPosition()).toEqual([2, 2, 'R']);
     });
 
     it("Add shorthand FFRFF navigates to 2,2 facing East (90)", function () {
         RoverService.moveSet('FFRFF');
-        expect(RoverService.getPosition()).toEqual([2, 2, 90]);
+        expect(RoverService.getPosition()).toEqual([2, 2, 'R']);
+    });
+
+    it("Rotate 360", function () {
+        RoverService.moveSet('RRRR');
+        expect(RoverService.getPosition()).toEqual([2, 2, 'N']);
     });
 });
