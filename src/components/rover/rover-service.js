@@ -36,7 +36,15 @@
             var array = string.split('');
             _.each(array, function (letter) {
                 that[letter]();
+                checkBounds();
             });
+        };
+
+        var checkBounds = function () {
+            if (getX() > bounds.x) roverData.x -= bounds.x;
+            if (getY() > bounds.y) roverData.y -= bounds.y;
+            if (getX() < 0) roverData.x += bounds.x;
+            if (getY() < 0) roverData.y += bounds.y;
         };
 
         var F = function () {
@@ -59,8 +67,6 @@
 
         //Public Functions
 
-        that.getX = getX;
-        that.getY = getY;
         that.getAngle = getAngle;
         that.moveSet = moveSet;
         that.getPosition = getPosition;

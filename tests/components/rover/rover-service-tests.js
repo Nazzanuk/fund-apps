@@ -20,7 +20,7 @@ describe("rover service", function () {
 
     it("moves backwards", function () {
         RoverService.moveSet('B');
-        expect(RoverService.getPosition()).toEqual([0, -1, 'N']);
+        expect(RoverService.getPosition()).toEqual([0, 99, 'N']);
     });
 
     it("rotates left", function () {
@@ -48,13 +48,13 @@ describe("rover service", function () {
         expect(RoverService.getPosition()).toEqual([0, 0, 'N']);
     });
 
-    it("Check bounds", function () {
+    it("Check Y bounds", function () {
         RoverService.moveSet('BBB');
-        expect(RoverService.getPosition()).toEqual([0, 98, 'N']);
+        expect(RoverService.getPosition()).toEqual([0, 97, 'N']);
     });
 
-    it("Check bounds", function () {
+    it("Check X bounds", function () {
         RoverService.moveSet('LFFF');
-        expect(RoverService.getPosition()).toEqual([98, 0, 'W']);
+        expect(RoverService.getPosition()).toEqual([97, 0, 'W']);
     });
 });
