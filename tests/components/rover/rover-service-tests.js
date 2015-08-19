@@ -19,4 +19,19 @@ describe("rover service", function () {
         RoverService.F();
         expect(RoverService.getY()).toEqual(1);
     });
+
+    it("moves backwards", function () {
+        RoverService.B();
+        expect(RoverService.getY()).toEqual(-1);
+    });
+
+    it("rotates left", function () {
+        RoverService.L();
+        expect(RoverService.getAngle()).toEqual(-90);
+    });
+
+    it("rotates right", function () {
+        RoverService.R();
+        expect(RoverService.getAngle()).toEqual(90);
+    });
 });

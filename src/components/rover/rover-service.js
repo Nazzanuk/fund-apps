@@ -21,7 +21,19 @@
         };
 
         var F = function () {
-            roverData.y++;
+
+        };
+
+        var B = function () {
+
+        };
+
+        var L = function () {
+
+        };
+
+        var R = function () {
+
         };
 
         //Public Functions
@@ -30,6 +42,9 @@
         that.getY = getY;
         that.getAngle = getAngle;
         that.F = F;
+        that.B = B;
+        that.L = L;
+        that.R = R;
 
     }]);
 }());
