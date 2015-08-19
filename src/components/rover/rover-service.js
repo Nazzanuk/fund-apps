@@ -8,6 +8,8 @@
             angle: 0
         };
 
+        var directions = ['N', 'E', 'S', 'W'];
+
         var getX = function () {
             return roverData.x;
         };
@@ -20,8 +22,14 @@
             return roverData.angle;
         };
 
+        var getPrettyAngle = function () {
+            var index = ((getAngle() / 90) % 4);
+            index = index >= 0 ? index : index + 4;
+            return  directions[index];
+        };
+
         var getPosition = function () {
-            return [getX(), getY(), getAngle()]
+            return [getX(), getY(), getPrettyAngle()]
         };
 
         var moveSet = function (string) {

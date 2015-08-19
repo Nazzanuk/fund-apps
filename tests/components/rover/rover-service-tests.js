@@ -25,26 +25,26 @@ describe("rover service", function () {
 
     it("rotates left", function () {
         RoverService.moveSet('L');
-        expect(RoverService.getPosition()).toEqual([0, 0, 'L']);
+        expect(RoverService.getPosition()).toEqual([0, 0, 'W']);
     });
 
     it("rotates right", function () {
         RoverService.moveSet('R');
-        expect(RoverService.getPosition()).toEqual([0, 0, 'R']);
+        expect(RoverService.getPosition()).toEqual([0, 0, 'E']);
     });
 
     it("FFRFF navigates to 2,2 facing East (90)", function () {
         RoverService.moveSet('FFRFF');
-        expect(RoverService.getPosition()).toEqual([2, 2, 'R']);
-    });
-
-    it("Add shorthand FFRFF navigates to 2,2 facing East (90)", function () {
-        RoverService.moveSet('FFRFF');
-        expect(RoverService.getPosition()).toEqual([2, 2, 'R']);
+        expect(RoverService.getPosition()).toEqual([2, 2, 'E']);
     });
 
     it("Rotate 360", function () {
         RoverService.moveSet('RRRR');
-        expect(RoverService.getPosition()).toEqual([2, 2, 'N']);
+        expect(RoverService.getPosition()).toEqual([0, 0, 'N']);
+    });
+
+    it("Rotate -360", function () {
+        RoverService.moveSet('LLLL');
+        expect(RoverService.getPosition()).toEqual([0, 0, 'N']);
     });
 });
