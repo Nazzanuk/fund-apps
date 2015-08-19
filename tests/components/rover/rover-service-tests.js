@@ -47,4 +47,14 @@ describe("rover service", function () {
         RoverService.moveSet('LLLL');
         expect(RoverService.getPosition()).toEqual([0, 0, 'N']);
     });
+
+    it("Check bounds", function () {
+        RoverService.moveSet('BBB');
+        expect(RoverService.getPosition()).toEqual([0, 98, 'N']);
+    });
+
+    it("Check bounds", function () {
+        RoverService.moveSet('LFFF');
+        expect(RoverService.getPosition()).toEqual([98, 0, 'W']);
+    });
 });

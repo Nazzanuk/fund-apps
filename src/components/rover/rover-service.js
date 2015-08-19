@@ -2,13 +2,13 @@
     app.service('RoverService', [function () {
         var that = this;
 
-        var roverData = {
-            x: 0,
-            y: 0,
-            angle: 0
+        var bounds = {
+            x:100,
+            y:100
         };
 
-        var directions = ['N', 'E', 'S', 'W'];
+        var roverData = {x: 0, y: 0, angle: 0},
+            directions = ['N', 'E', 'S', 'W'];
 
         var getX = function () {
             return roverData.x;
@@ -25,7 +25,7 @@
         var getPrettyAngle = function () {
             var index = ((getAngle() / 90) % 4);
             index = index >= 0 ? index : index + 4;
-            return  directions[index];
+            return directions[index];
         };
 
         var getPosition = function () {
